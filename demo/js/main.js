@@ -295,21 +295,14 @@
             <div style="text-align:center;padding:24px 10px;">
               <h4 style="color:#2E8B57;margin:0 0 10px;">Thank You!</h4>
               <p style="color:rgba(255,255,255,0.9);margin:0 0 25px;">Your service request has been successfully sent.</p>
-              
+
               <div style="border-top: 1px dashed rgba(255,255,255,0.4); padding-top: 30px; margin-top: 30px;">
-                <p style="color: #fff; font-size: 1.15rem; font-weight: bold; margin-bottom: 20px;">
-                  Redirecting to secure payment via Razorpay...
+                <p style="color: #fff; font-size: 1.15rem; font-weight: bold; margin: 0;">
+                  Please Call Us (231) 313-8117 To Make Payment
                 </p>
-                <a href="https://razorpay.com/" target="_blank" class="btn w-100 fw-bold py-3" style="color: #fff; font-size: 1rem; background-color: #3395ff;">
-                  Click Here To Make Payment
-                </a>
               </div>
             </div>
           `;
-          
-          setTimeout(() => {
-            window.location.href = "https://razorpay.com/";
-          }, 3000);
         } else {
           alert('Failed to send. Please try again or call (231) 313-8117.');
         }
