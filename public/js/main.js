@@ -293,14 +293,9 @@
           
           this.innerHTML = `
             <div style="text-align:center;padding:24px 10px;">
-              <h4 style="color:#2E8B57;margin:0 0 10px;">Thank You!</h4>
-              <p style="color:rgba(255,255,255,0.9);margin:0 0 25px;">Your service request has been successfully sent.</p>
-
-              <div style="border-top: 1px dashed rgba(255,255,255,0.4); padding-top: 30px; margin-top: 30px;">
-                <p style="color: #fff; font-size: 1.15rem; font-weight: bold; margin: 0;">
-                  Please Call Us (231) 313-8117 To Make Payment
-                </p>
-              </div>
+              <p style="color:rgba(255,255,255,0.9);margin:0;font-size:1.15rem;font-weight:bold;">
+                Please Call Us (231) 313-8117 To Make Payment
+              </p>
             </div>
           `;
         } else {
