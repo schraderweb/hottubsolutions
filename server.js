@@ -2,6 +2,22 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+// Load .env variables locally if present
+const envPath = path.join(__dirname, '.env');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf-8');
+  envContent.split('\n').forEach(line => {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#') && trimmed.includes('=')) {
+      const [key, ...valParts] = trimmed.split('=');
+      const envKey = key.trim();
+      if (envKey && !process.env[envKey]) {
+        process.env[envKey] = valParts.join('=').trim().replace(/^["']|["']$/g, '');
+      }
+    }
+  });
+}
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
