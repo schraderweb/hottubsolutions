@@ -3,7 +3,7 @@ const path = require('path');
 
 const src = path.join(__dirname, 'src');
 const publicDir = __dirname;
-const demoDir = path.join(__dirname, '..', 'demo');
+const rootDir = path.join(__dirname, '..');
 
 const MAPS_API_KEY = (process.env.GOOGLE_MAPS_API_KEY || '').trim();
 
@@ -47,28 +47,20 @@ function copyDir(srcDir, destDir) {
 
 for (const [filename, partials] of Object.entries(pages)) {
   const html = partials.map(partial).join('\n');
-  fs.writeFileSync(path.join(publicDir, filename), html);
-  console.log(`Built public/${filename}`);
+  fs.writeFileSync(path.join(rootDir, filename), html);
+  console.log(`Built ${filename}`);
 }
 
-fs.mkdirSync(demoDir, { recursive: true });
-
-for (const [filename, partials] of Object.entries(pages)) {
-  const html = partials.map(partial).join('\n');
-  fs.writeFileSync(path.join(demoDir, filename), html);
-  console.log(`Built demo/${filename}`);
-}
-
-copyDir(path.join(publicDir, 'css'), path.join(demoDir, 'css'));
-copyDir(path.join(publicDir, 'js'), path.join(demoDir, 'js'));
-copyDir(path.join(publicDir, 'images'), path.join(demoDir, 'images'));
+copyDir(path.join(publicDir, 'css'), path.join(rootDir, 'css'));
+copyDir(path.join(publicDir, 'js'), path.join(rootDir, 'js'));
+copyDir(path.join(publicDir, 'images'), path.join(rootDir, 'images'));
 
 for (const file of ['favicon.png', 'form-mail.html']) {
   const srcFile = path.join(publicDir, file);
   if (fs.existsSync(srcFile)) {
-    fs.copyFileSync(srcFile, path.join(demoDir, file));
-    console.log(`Copied demo/${file}`);
+    fs.copyFileSync(srcFile, path.join(rootDir, file));
+    console.log(`Copied ${file}`);
   }
 }
 
-console.log('Demo site built to demo/');
+console.log('Site built to project root');

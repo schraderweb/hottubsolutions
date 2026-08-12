@@ -26,7 +26,7 @@ module.exports = async function handler(req, res) {
     const values = { firstName, lastName, phone, email, zip, referral, message, appointment };
 
     // On Vercel the working dir is the project root
-    const templatePath = path.join(process.cwd(), 'demo', 'form-mail.html');
+    const templatePath = path.join(process.cwd(), 'form-mail.html');
     let html = fs.readFileSync(templatePath, 'utf-8');
 
     for (const [key, label] of Object.entries(labels)) {

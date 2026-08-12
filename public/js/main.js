@@ -226,10 +226,10 @@
   const desktopLogos = document.querySelectorAll('.nav-logo-img, .drawer-logo-img');
   const mobileLogo = document.querySelector('.mobile-topbar-logo');
 
-  const LOGO_DESKTOP_DEFAULT = '/demo/images/logo.png';
-  const LOGO_DESKTOP_SCROLLED = '/demo/images/logo-nav.png';
-  const LOGO_MOBILE_DEFAULT = '/demo/images/logo-nav-light.png';
-  const LOGO_MOBILE_SCROLLED = '/demo/images/logo-nav-dark.png';
+  const LOGO_DESKTOP_DEFAULT = '/images/logo.png';
+  const LOGO_DESKTOP_SCROLLED = '/images/logo-nav.png';
+  const LOGO_MOBILE_DEFAULT = '/images/logo-nav-light.png';
+  const LOGO_MOBILE_SCROLLED = '/images/logo-nav-dark.png';
 
   function toggleNavScroll() {
     const threshold = 50;

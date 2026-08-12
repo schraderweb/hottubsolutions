@@ -41,10 +41,8 @@ const STATIC_CACHE = { maxAge: '365d', setHeaders: (res, filePath) => {
 app.use(express.static(__dirname, STATIC_CACHE));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index-demo.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
-
-app.use('/demo', express.static(path.join(__dirname, 'demo'), STATIC_CACHE));
 
 app.post('/api/send-enquiry', async (req, res) => {
   try {
@@ -61,7 +59,7 @@ app.post('/api/send-enquiry', async (req, res) => {
 
     const values = { firstName, lastName, phone, email, zip, referral, message, appointment };
 
-    const templatePath = path.join(__dirname, 'demo', 'form-mail.html');
+    const templatePath = path.join(__dirname, 'form-mail.html');
     let html = fs.readFileSync(templatePath, 'utf-8');
 
     for (const [key, label] of Object.entries(labels)) {

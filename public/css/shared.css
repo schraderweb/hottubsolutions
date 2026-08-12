@@ -847,7 +847,7 @@ a { text-decoration: none; }
 .brands-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('/demo/images/wooden-bg.webp') center center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('/images/wooden-bg.webp') center center / cover no-repeat;
   filter: brightness(0.85) saturate(1.1);
 }
 .brands-label {
@@ -1214,7 +1214,7 @@ a { text-decoration: none; }
     font-size: 0.85rem;
   }
 }
-.company-img-col   { background: url('/demo/images/about.webp') no-repeat center center / cover; position: absolute; top: 0; left: 0; bottom: 0; height: 100%; }
+.company-img-col   { background: url('/images/about.webp') no-repeat center center / cover; position: absolute; top: 0; left: 0; bottom: 0; height: 100%; }
 .about-content-bg  { background-color: #E8F4FD; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
 .text-navy         { color: var(--color-text-navy); }
 .section-title     { padding: 15px 25px; font-weight: 800; color: var(--color-text-navy); font-size: 2.2rem; line-height: 1.2; }
