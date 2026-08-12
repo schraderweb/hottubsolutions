@@ -96,6 +96,9 @@
 
           <div class="hero-mobile-layout">
 
+            <!-- Hero Image -->
+            <img src="/public/hero-image.webp" class="hero-mobile-img" alt="Hot tub in a relaxing outdoor setting" />
+
             <!-- Text Content -->
             <div class="hero-mobile-content">
               <div class="hero__logo hero__logo--mobile">
@@ -112,19 +115,29 @@
                 we're here to help. Reach out today and we'll get back to you soon.
               </p>
 
+              <!-- Mobile CTAs -->
+              <div class="hero-mobile-ctas">
+                <a href="tel:12313138117" class="btn-mobile-call">
+                  <i class="bi bi-telephone-fill"></i> CALL NOW (231) 313-8117
+                </a>
+                <a href="#mobile-estimate-form" class="btn-mobile-estimate">
+                  <i class="bi bi-envelope-fill"></i> REQUEST A CONSULTATION
+                </a>
+              </div>
+
             </div>
 
             <!-- Estimate Form -->
             <div class="hero-mobile-form-section" id="mobile-estimate-form">
               <div class="hero-mobile-form-card">
-                <div class="d-flex justify-content-between align-items-center mb-3" style="color: white; font-size: 0.9rem;">
-                  <div class="d-flex align-items-center fw-bold text-accent">
-                    <span class="rounded-circle bg-accent text-dark d-inline-flex justify-content-center align-items-center me-2" style="width: 22px; height: 22px; font-size: 0.8rem;">1</span>
+                <div class="hero-mobile-stepper d-flex justify-content-between align-items-center mb-3">
+                  <div class="hero-mobile-step hero-mobile-step--active d-flex align-items-center fw-bold">
+                    <span class="hero-mobile-step-number me-2">1</span>
                     Contact
                   </div>
-                  <div style="flex-grow: 1; border-top: 1px dashed rgba(255,255,255,0.5); margin: 0 10px;"></div>
-                  <div class="d-flex align-items-center text-white" style="opacity: 0.7;">
-                    <span class="rounded-circle bg-secondary text-white d-inline-flex justify-content-center align-items-center me-2" style="width: 22px; height: 22px; font-size: 0.8rem;">2</span>
+                  <div class="hero-mobile-step-divider" aria-hidden="true"></div>
+                  <div class="hero-mobile-step hero-mobile-step--muted d-flex align-items-center">
+                    <span class="hero-mobile-step-number me-2">2</span>
                     Make Payment
                   </div>
                 </div>
@@ -167,20 +180,37 @@
                     <button type="submit" class="btn w-100 fw-bold py-3 btn-mobile-submit">Click To Send - Next Step &rarr;</button>
                   </div>
                 </form>
-                <div class="text-center mt-3" style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.85);">
+                <div class="hero-mobile-form-note text-center mt-3">
                   <i class="bi bi-lock-fill me-1"></i> Your information is secure and will never be shared.
                 </div>
               </div>
             </div>
 
-            <!-- Mobile CTAs -->
-            <div class="hero-mobile-ctas">
-              <a href="tel:12313138117" class="btn-mobile-call">
-                <i class="bi bi-telephone-fill"></i> CALL NOW (231) 313-8117
-              </a>
-              <a href="#mobile-estimate-form" class="btn-mobile-estimate">
-                <i class="bi bi-envelope-fill"></i> REQUEST A CONSULTATION
-              </a>
+            <!-- Contact Info Cards -->
+            <div class="hero-mobile-info-bar">
+              <div class="info-card-mobile">
+                <div class="info-card-icon" aria-hidden="true"><i class="bi bi-telephone-fill"></i></div>
+                <div class="info-card-copy">
+                  <h6>Call Us</h6>
+                  <p><a href="tel:12313138117">(231) 313-8117</a></p>
+                </div>
+                <a href="tel:12313138117" class="info-card-arrow" aria-label="Call Hot Tub Solutions">&rsaquo;</a>
+              </div>
+              <div class="info-card-mobile">
+                <div class="info-card-icon" aria-hidden="true"><i class="bi bi-envelope-fill"></i></div>
+                <div class="info-card-copy">
+                  <h6>Email Us</h6>
+                  <p><a href="mailto:info@hottubsolutions.com">info@hottubsolutions.com</a></p>
+                </div>
+                <a href="mailto:info@hottubsolutions.com" class="info-card-arrow" aria-label="Email Hot Tub Solutions">&rsaquo;</a>
+              </div>
+              <div class="info-card-mobile">
+                <div class="info-card-icon" aria-hidden="true"><i class="bi bi-clock-fill"></i></div>
+                <div class="info-card-copy">
+                  <h6>Business Hours</h6>
+                  <p>Mon &ndash; Fri: 9AM &ndash; 6PM<br>Saturday: 10AM &ndash; 4PM<br>Sunday: Closed</p>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -203,4 +233,3 @@
           </svg>
         </div>
       </section>
-

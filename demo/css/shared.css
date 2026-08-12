@@ -456,14 +456,32 @@ a { text-decoration: none; }
   .hero-desktop-layout { display: none; }
   .hero-mobile-layout  { display: block; }
 
-  /* ── Mobile Hero Overlay ──
-     Make the gradient darker and more vertical on mobile so text/form are readable */
+  /* Keep the image, content, and wave divider inside the mobile hero boundary. */
+  .hero {
+    min-height: auto;
+    padding-bottom: 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hero__bg,
   .hero__overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(15, 36, 64, 0.65) 0%,
-      rgba(15, 36, 64, 0.85) 100%
-    );
+    display: none;
+  }
+
+  .hero__inner {
+    padding-top: var(--mobile-nav-height);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* ── Mobile Hero Image ── */
+  .hero-mobile-img {
+    width: 100%;
+    height: clamp(360px, 58vw, 420px);
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
 
   /* ── Hero Waves Mobile ──
@@ -478,15 +496,16 @@ a { text-decoration: none; }
   .hero-mobile-content {
     position: relative;
     z-index: 2;
-    padding: 64px 20px 24px;
-    text-align: center;
+    padding: 28px 20px 0;
+    background: var(--color-white);
+    text-align: left;
   }
 
   .hero-mobile-content .hero__logo--mobile {
     display: flex;
-    justify-content: center;
-    margin-bottom: 16px;
-    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    width: auto;
   }
 
   .hero-mobile-content .hero__logo--mobile a {
@@ -494,28 +513,32 @@ a { text-decoration: none; }
   }
 
   .hero-mobile-content .hero__logo--mobile .logo {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     border-width: 2px;
-    margin: 0 auto;
+    margin: 0;
+    background-color: var(--color-white);
+    border-color: rgba(26, 58, 92, 0.15);
+    box-shadow: 0 4px 14px rgba(15, 36, 64, 0.14);
   }
 
   .hero-mobile-title {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--color-white);
+    color: var(--color-primary-dark);
     line-height: 1.2;
     margin-bottom: 16px;
+    text-shadow: none;
   }
 
   .hero-mobile-desc {
     font-size: 1rem;
-    color: rgba(255,255,255,0.85);
+    color: var(--color-text-body);
     line-height: 1.6;
-    margin-bottom: 28px;
+    margin-bottom: 0;
     max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .hero-mobile-ctas {
@@ -523,8 +546,8 @@ a { text-decoration: none; }
     flex-direction: column;
     gap: 12px;
     max-width: 400px;
-    margin: 0 auto;
-    padding: 12px 16px 80px;
+    margin: 24px 0 40px;
+    padding: 0;
     position: relative;
     z-index: 10;
   }
@@ -551,12 +574,12 @@ a { text-decoration: none; }
     justify-content: center;
     gap: 8px;
     background: transparent;
-    color: var(--color-white);
+    color: var(--color-primary-dark);
     font-weight: 700;
     font-size: 0.95rem;
     padding: 14px 20px;
     border-radius: var(--radius-md);
-    border: 2px solid rgba(255,255,255,0.3);
+    border: 2px solid var(--color-primary-dark);
     text-decoration: none;
     transition: all .2s;
   }
@@ -564,16 +587,92 @@ a { text-decoration: none; }
 
   /* ── Mobile Form Section ── */
   .hero-mobile-form-section {
-    padding: 24px 16px 24px;
+    position: relative;
+    z-index: 2;
+    padding: 32px 20px 40px;
+    background: var(--color-white);
   }
 
   .hero-mobile-form-card {
-    background: var(--color-primary-form);
-    border-radius: 12px;
-    padding: 24px 20px;
+    background: var(--color-white);
+    border-radius: 0;
+    padding: 0;
     max-width: 500px;
     margin: 0 auto;
-    color: var(--color-white);
+    color: var(--color-primary-dark);
+    box-shadow: none;
+  }
+
+  .hero-mobile-stepper {
+    color: var(--color-primary-dark);
+    font-size: 0.9rem;
+  }
+
+  .hero-mobile-step {
+    white-space: nowrap;
+  }
+
+  .hero-mobile-step--active {
+    color: var(--color-accent);
+  }
+
+  .hero-mobile-step--muted {
+    color: #64748b;
+    opacity: 0.9;
+  }
+
+  .hero-mobile-step-number {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .hero-mobile-step--active .hero-mobile-step-number {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  .hero-mobile-step--muted .hero-mobile-step-number {
+    background: #e2e8f0;
+    color: #64748b;
+  }
+
+  .hero-mobile-step-divider {
+    flex: 1 1 auto;
+    min-width: 12px;
+    border-top: 1px dashed #cbd5e1;
+    margin: 0 10px;
+  }
+
+  .hero-mobile-form-card .rounded-input {
+    border: 1px solid #d8dee8 !important;
+    border-radius: 6px !important;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    background: #fff;
+    color: var(--color-primary-dark);
+  }
+
+  .hero-mobile-form-card .rounded-input::placeholder {
+    color: #7a8494;
+    opacity: 1;
+  }
+
+  .hero-mobile-form-card .form-control:focus,
+  .hero-mobile-form-card .form-select:focus {
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 0 0.15rem rgba(46, 139, 87, 0.2);
+  }
+
+  .hero-mobile-form-note {
+    font-size: 0.85rem;
+    color: #64748b;
   }
 
   /* ── Mobile Info Bar ── */
@@ -581,53 +680,74 @@ a { text-decoration: none; }
     display: flex;
     flex-direction: column;
     gap: 0;
-    background: var(--color-primary-dark);
-    padding: 0 16px 32px;
+    background: #f7f7f7;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    /* Reserve the wave's full mobile height below the final card. */
+    padding: 0 16px 112px;
   }
 
   .info-card-mobile {
-    background: var(--color-primary-light);
-    border-radius: 8px;
-    padding: 16px;
+    background: #fff;
+    border-radius: 0;
+    padding: 16px 4px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-    color: var(--color-white);
+    gap: 16px;
+    margin-bottom: 0;
+    color: var(--color-primary-dark);
+    border-bottom: 1px solid #eee;
+  }
+
+  .info-card-mobile:last-child {
+    border-bottom: none;
+  }
+
+  .info-card-copy {
+    flex: 1;
+    min-width: 0;
   }
 
   .info-card-icon {
     width: 40px;
     height: 40px;
-    background: var(--color-accent);
+    background: #e8f4fd;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
-  .info-card-icon i { font-size: 18px; color: #fff; }
+  .info-card-icon i { font-size: 18px; color: var(--color-accent); }
 
   .info-card-mobile h6 {
     margin: 0;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
   }
 
   .info-card-mobile p {
-    margin: 2px 0 0;
-    font-size: 0.85rem;
+    margin: 3px 0 0;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--color-white);
+    color: #555;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .info-card-mobile p a {
+    color: inherit;
+    text-decoration: none;
   }
 
   .info-card-arrow {
     margin-left: auto;
     font-size: 1.8rem;
-    color: rgba(255,255,255,0.4);
+    color: #999;
     text-decoration: none;
     line-height: 1;
+    flex-shrink: 0;
   }
 
   /* Override inline padding-top for wave sections on tablet */
